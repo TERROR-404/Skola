@@ -3,12 +3,23 @@
     x:Class="Skola.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:Skola"
+    xmlns:views="clr-namespace:Skola.Views"
     Shell.FlyoutBehavior="Disabled">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <TabBar>
+        <ShellContent
+            Title="Učitelé"
+            ContentTemplate="{DataTemplate views:TeachersPage}" />
+
+        <ShellContent
+            Title="Údržbáři"
+            ContentTemplate="{DataTemplate views:MaintenancePage}" />
+        <ShellContent
+            Title="Podpora"
+            ContentTemplate="{DataTemplate views:HelpPage}" />
+        <ShellContent
+            Title="Studenti"
+            ContentTemplate="{DataTemplate views:StudentsPage}" />
+    </TabBar>
 
 </Shell>

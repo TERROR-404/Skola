@@ -6,6 +6,6 @@
         <HorizontalStackLayout>
             
         </HorizontalStackLayout>
-        <Button Text="Přidat" Clicked="AddTeacher_Clicked" IconImageSource="{FontImage Glyph='+', Color=Black, Size=22}"  />
+        <Button Text="Přidat" Clicked="AddTeacher_Clicked"  />
     </VerticalStackLayout>
 </ContentPage>

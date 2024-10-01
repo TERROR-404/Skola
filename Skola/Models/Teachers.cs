@@ -1,7 +1,8 @@
 ﻿namespace Skola.Models;
 
-internal class Teachers
+internal class Teacher
 {
     public string Filename { get; set; }
-    public string Text { get; set; }
+    public string Name { get; set; }
+    public string Surname { get; set; }
 }

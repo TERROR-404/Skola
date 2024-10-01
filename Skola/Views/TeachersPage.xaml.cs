@@ -7,21 +7,18 @@ public partial class TeachersPage : ContentPage
 		InitializeComponent();
 
         string appDataPath = FileSystem.AppDataDirectory;
-        string randomFileName = $"{Path.GetRandomFileName()}.employees.txt";
+        string randomFileName = $"{Path.GetRandomFileName()}.teachers.txt";
 
         LoadTeacher(Path.Combine(appDataPath, randomFileName));
     }
     private async void AddTeacher_Clicked(object sender, EventArgs e)
     {
-        if (BindingContext is Models.Teachers teacher)
-            File.WriteAllText(teacher.Filename, teacher.Text);
-
-        await Shell.Current.GoToAsync("..");
+        await Shell.Current.GoToAsync(nameof(AddTeacherPage));
     }
 
     private async void DeleteTeacher_Clicked(object sender, EventArgs e)
     {
-        if (BindingContext is Models.Teachers teacher)
+        if (BindingContext is Models.Teacher teacher)
         {
             if (File.Exists(teacher.Filename))
                 File.Delete(teacher.Filename);
@@ -31,12 +28,13 @@ public partial class TeachersPage : ContentPage
     }
     private void LoadTeacher(string fileName)
     {
-        Models.Teachers teacherModel = new Models.Teachers();
+        Models.Teacher teacherModel = new Models.Teacher();
         teacherModel.Filename = fileName;
 
         if (File.Exists(fileName))
         {
-            teacherModel.Text = File.ReadAllText(fileName);
+            teacherModel.Name = File.ReadAllText(fileName).Split(' ')[0];
+            teacherModel.Surname = File.ReadAllText(fileName).Split(' ')[1];
         }
 
         BindingContext = teacherModel;

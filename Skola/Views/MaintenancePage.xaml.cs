@@ -1,9 +1,10 @@
-namespace Skola.Views;
-
-public partial class MaintenancePage : ContentPage
+namespace Skola.Views
 {
-	public MaintenancePage()
-	{
-		InitializeComponent();
-	}
+    public partial class MaintenancePage : ContentPage
+    {
+        public MaintenancePage()
+        {
+            InitializeComponent();
+        }
+    }
 }

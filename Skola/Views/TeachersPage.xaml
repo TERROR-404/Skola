@@ -3,9 +3,28 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Skola.Views.TeachersPage">
     <VerticalStackLayout>
-        <HorizontalStackLayout>
-            
-        </HorizontalStackLayout>
-        <Button Text="Přidat" Clicked="AddTeacher_Clicked"  />
+        <Grid RowDefinitions="100, 540 , *">
+            <Label Grid.Row="0" Text="Učitelé" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="White" BackgroundColor="Blue" HeightRequest="90" FontSize="30" WidthRequest="500"/>
+            <CollectionView Grid.Row="1" x:Name="teachersCollection"
+                        ItemsSource="{Binding Teachers}"
+                        Margin="10">
+
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="5" />
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <HorizontalStackLayout BackgroundColor="LightBlue">
+                            <Grid>
+                                <Label Margin="10,0,0,0" VerticalTextAlignment="Center" WidthRequest="686" Grid.Column="0" Text="{Binding Name}" FontSize="22" TextColor="Black"/>
+                                <Button CommandParameter="{Binding .}" WidthRequest="45" Grid.Column="1" Clicked="DeleteTeacher_Clicked" BackgroundColor="Red" Text="---" FontSize="14" TextColor="Black"/>                                
+                            </Grid>
+                        </HorizontalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Button Grid.Row="2" VerticalOptions="End" Text="Přidat" Clicked="AddTeacher_Clicked" />
+        </Grid>
     </VerticalStackLayout>
 </ContentPage>

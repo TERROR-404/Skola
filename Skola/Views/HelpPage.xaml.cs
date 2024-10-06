@@ -1,9 +1,10 @@
-namespace Skola.Views;
-
-public partial class HelpPage : ContentPage
+namespace Skola.Views
 {
-	public HelpPage()
-	{
-		InitializeComponent();
-	}
+    public partial class HelpPage : ContentPage
+    {
+        public HelpPage()
+        {
+            InitializeComponent();
+        }
+    }
 }

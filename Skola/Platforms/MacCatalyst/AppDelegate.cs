@@ -1,9 +1,10 @@
 ﻿using Foundation;
 
-namespace Skola;
-
-[Register("AppDelegate")]
-public class AppDelegate : MauiUIApplicationDelegate
+namespace Skola
 {
-	protected override MauiApp CreateMauiApp() => MauiProgram.CreateMauiApp();
+    [Register("AppDelegate")]
+    public class AppDelegate : MauiUIApplicationDelegate
+    {
+        protected override MauiApp CreateMauiApp() => MauiProgram.CreateMauiApp();
+    }
 }

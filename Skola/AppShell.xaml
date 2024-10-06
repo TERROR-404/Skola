@@ -4,22 +4,26 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:views="clr-namespace:Skola.Views"
-    Shell.FlyoutBehavior="Disabled">
+    Shell.FlyoutBehavior="Flyout"
+    Shell.ForegroundColor="Blue">
 
-    <TabBar>
-        <ShellContent
-            Title="Učitelé"
-            ContentTemplate="{DataTemplate views:TeachersPage}" />
+    <Shell.FlyoutHeader>
+        <Label Text="Škola" HorizontalTextAlignment="Center" FontSize="20" FontAttributes="Bold" Padding="30, 10, 10, 10"></Label>
+    </Shell.FlyoutHeader>
 
+    <FlyoutItem Title="Home" FlyoutDisplayOptions="AsMultipleItems">
         <ShellContent
-            Title="Údržbáři"
-            ContentTemplate="{DataTemplate views:MaintenancePage}" />
+        Title="Učitelé"
+        ContentTemplate="{DataTemplate views:TeachersPage}"/>
         <ShellContent
-            Title="Podpora"
-            ContentTemplate="{DataTemplate views:HelpPage}" />
+        Title="Údržbáři"
+        ContentTemplate="{DataTemplate views:MaintenancePage}"/>
         <ShellContent
-            Title="Studenti"
-            ContentTemplate="{DataTemplate views:StudentsPage}" />
-    </TabBar>
+        Title="Podpora"
+        ContentTemplate="{DataTemplate views:HelpPage}"/>
+        <ShellContent
+        Title="Studenti"
+        ContentTemplate="{DataTemplate views:StudentsPage}"/>
+    </FlyoutItem>
 
 </Shell>

@@ -2,9 +2,10 @@
 using Android.Content.PM;
 using Android.OS;
 
-namespace Skola;
-
-[Activity(Theme = "@style/Maui.SplashTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize | ConfigChanges.Density)]
-public class MainActivity : MauiAppCompatActivity
+namespace Skola
 {
+    [Activity(Theme = "@style/Maui.SplashTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize | ConfigChanges.Density)]
+    public class MainActivity : MauiAppCompatActivity
+    {
+    }
 }

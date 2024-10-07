@@ -14,16 +14,20 @@
     <FlyoutItem Title="Home" FlyoutDisplayOptions="AsMultipleItems">
         <ShellContent
         Title="Učitelé"
-        ContentTemplate="{DataTemplate views:TeachersPage}"/>
+        ContentTemplate="{DataTemplate views:TeachersPage}"
+        Icon="teacher.png"/>
         <ShellContent
         Title="Údržbáři"
-        ContentTemplate="{DataTemplate views:MaintenancePage}"/>
+        ContentTemplate="{DataTemplate views:MaintenancePage}"
+        Icon="tools.png"/>
         <ShellContent
         Title="Podpora"
-        ContentTemplate="{DataTemplate views:HelpPage}"/>
+        ContentTemplate="{DataTemplate views:HelpPage}"
+        Icon="help.png"/>
         <ShellContent
         Title="Studenti"
-        ContentTemplate="{DataTemplate views:StudentsPage}"/>
+        ContentTemplate="{DataTemplate views:StudentsPage}"
+        Icon="student.png"/>
     </FlyoutItem>
 
 </Shell>

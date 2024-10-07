@@ -9,7 +9,7 @@ namespace Skola.Models
 {
     internal class AllTeachers
     {
-        public ObservableCollection<Teacher> Teachers { get; set; } = new ObservableCollection<Teacher>();
+        public ObservableCollection<Employee> Teachers { get; set; } = new ObservableCollection<Employee>();
 
         public AllTeachers() =>
             LoadTeachers();
@@ -20,11 +20,11 @@ namespace Skola.Models
 
             string appDataPath = FileSystem.AppDataDirectory;
 
-            IEnumerable<Teacher> teachers = Directory
+            IEnumerable<Employee> teachers = Directory
 
                                         .EnumerateFiles(appDataPath, "*.teachers.txt")
 
-                                        .Select(filename => new Teacher()
+                                        .Select(filename => new Employee()
                                         {
                                             Filename = filename,
                                             Name = File.ReadAllText(filename)
@@ -32,7 +32,7 @@ namespace Skola.Models
 
                                         .OrderBy(teacher => teacher.Name);
 
-            foreach (Teacher teacher in teachers)
+            foreach (Employee teacher in teachers)
                 Teachers.Add(teacher);
         }
     }

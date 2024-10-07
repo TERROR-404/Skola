@@ -1,37 +1,36 @@
-namespace Skola.Views
+namespace Skola.Views;
+
+public partial class AddTeacherPage : ContentPage
 {
-    public partial class AddTeacherPage : ContentPage
+    public string ItemId
     {
-        public string ItemId
-        {
-            set { LoadTeacher(value); }
-        }
-        public AddTeacherPage()
-        {
-            InitializeComponent();
+        set { LoadTeacher(value); }
+    }
+    public AddTeacherPage()
+    {
+        InitializeComponent();
 
-            string appDataPath = FileSystem.AppDataDirectory;
-            string randomFileName = $"{Path.GetRandomFileName()}.teachers.txt";
-            LoadTeacher(Path.Combine(appDataPath, randomFileName));
-        }
-        private async void SaveTeacher_Clicked(object sender, EventArgs e)
+        string appDataPath = FileSystem.AppDataDirectory;
+        string randomFileName = $"{Path.GetRandomFileName()}.teachers.txt";
+        LoadTeacher(Path.Combine(appDataPath, randomFileName));
+    }
+    private async void SaveTeacher_Clicked(object sender, EventArgs e)
+    {
+        if (BindingContext is Models.Employee teacher)
+            File.WriteAllText(teacher.Filename, TeacherName.Text);
+
+        await Shell.Current.GoToAsync("..");
+    }
+    private void LoadTeacher(string fileName)
+    {
+        Models.Employee teacherModel = new Models.Employee();
+        teacherModel.Filename = fileName;
+
+        if (File.Exists(fileName))
         {
-            if (BindingContext is Models.Teacher teacher)
-                File.WriteAllText(teacher.Filename, TeacherName.Text);
-
-            await Shell.Current.GoToAsync("..");
+            teacherModel.Name = File.ReadAllText(fileName);
         }
-        private void LoadTeacher(string fileName)
-        {
-            Models.Teacher noteModel = new Models.Teacher();
-            noteModel.Filename = fileName;
 
-            if (File.Exists(fileName))
-            {
-                noteModel.Name = File.ReadAllText(fileName);
-            }
-
-            BindingContext = noteModel;
-        }
+        BindingContext = teacherModel;
     }
 }

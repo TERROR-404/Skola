@@ -7,22 +7,22 @@ using System.Collections.ObjectModel;
 
 namespace Skola.Models
 {
-    internal class AllTeachers
+    internal class AllHelp
     {
-        public ObservableCollection<Employee> Teachers { get; set; } = new ObservableCollection<Employee>();
+        public ObservableCollection<Employee> Help { get; set; } = new ObservableCollection<Employee>();
 
-        public AllTeachers() =>
-            LoadTeachers();
+        public AllHelp() =>
+            LoadHelp();
 
-        public void LoadTeachers()
+        public void LoadHelp()
         {
-            Teachers.Clear();
+            Help.Clear();
 
             string appDataPath = FileSystem.AppDataDirectory;
 
-            IEnumerable<Employee> teachers = Directory
+            IEnumerable<Employee> helps = Directory
 
-                                        .EnumerateFiles(appDataPath, "*.teachers.txt")
+                                        .EnumerateFiles(appDataPath, "*.helps.txt")
 
                                         .Select(filename => new Employee()
                                         {
@@ -30,10 +30,10 @@ namespace Skola.Models
                                             Name = File.ReadAllText(filename)
                                         })
 
-                                        .OrderBy(teacher => teacher.Name);
+                                        .OrderBy(help => help.Name);
 
-            foreach (Employee teacher in teachers)
-                Teachers.Add(teacher);
+            foreach (Employee help in helps)
+                Help.Add(help);
         }
     }
 }

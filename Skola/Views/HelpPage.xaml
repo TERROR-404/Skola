@@ -3,28 +3,5 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Skola.Views.HelpPage">
     <VerticalStackLayout>
-        <Grid RowDefinitions="100, 540 , *">
-            <Label Grid.Row="0" Text="Podpora" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="White" BackgroundColor="Blue" HeightRequest="90" FontSize="30" WidthRequest="500"/>
-            <CollectionView Grid.Row="1" x:Name="helpsCollection"
-                        ItemsSource="{Binding Helps}"
-                        HorizontalOptions="Center">
-
-                <CollectionView.ItemsLayout>
-                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="5" />
-                </CollectionView.ItemsLayout>
-
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <HorizontalStackLayout HeightRequest="50" BackgroundColor="LightBlue">
-                            <Grid>
-                                <Label Margin="10,0,0,0" VerticalTextAlignment="Center" WidthRequest="725" Grid.Column="0" Text="{Binding Name}" FontSize="22" TextColor="Black"/>
-                                <Button Text="-" TextColor="Black" FontSize="20" CommandParameter="{Binding .}"  Grid.Column="1" Clicked="DeleteHelp_Clicked" BackgroundColor="Red" HeightRequest="50" WidthRequest="50"/>
-                            </Grid>
-                        </HorizontalStackLayout>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-            <Button Grid.Row="2" VerticalOptions="End" Text="Přidat" Clicked="AddHelp_Clicked" />
-        </Grid>
     </VerticalStackLayout>
 </ContentPage>
